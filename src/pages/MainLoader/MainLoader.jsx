@@ -1,5 +1,4 @@
-import "./styles/MainLoader.js"
-import { LoaderScreen, Spinner } from "./style.js"
+import { LoaderScreen, Spinner } from "./styles/MainLoader"
 
 const MainLoader = () => {
   return (
