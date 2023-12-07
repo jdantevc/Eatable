@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import MainScreen from './pages/MainScreen/MainScreen';
 import MainLoader from './pages/MainLoader/MainLoader';
+import { login } from './services/auth-services';
 
 
 const MainContainer = styled.div`
@@ -13,7 +14,19 @@ const MainContainer = styled.div`
 `;
 
 function App() {
+  const [user, setUser] = useState(null);
   const [showLoader, setShowLoader] = useState(true);
+
+  const loginData = {
+    email: "jdantevc@gmail.com",
+    password: "123456",
+  };
+
+  useEffect(() => {
+    login(loginData)
+      .then((u) => setUser(u))
+      .catch((error) => console.log(error));
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
