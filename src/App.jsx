@@ -16,7 +16,6 @@ const MainContainer = styled.div`
 function App() {
   const [user, setUser] = useState(null);
   const [showLoader, setShowLoader] = useState(true);
-
   const loginData = {
     email: "jdantevc@gmail.com",
     password: "123456",
@@ -32,20 +31,23 @@ function App() {
     const timer = setTimeout(() => {
       setShowLoader(false);
     }, 2000); 
-
     return () => clearTimeout(timer); 
   }, []);
+
 
 
   return (
     <MainContainer>
       {showLoader ? (
         <MainLoader />
-      ) : (
+      ) : user ? (
         <MainScreen />
+      ) : (
+        "Error Page"
       )}
     </MainContainer>
   );
 }
+
 
 export default App
