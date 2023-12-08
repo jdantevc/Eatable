@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
+  text-align: center;
+  background-color: #F6F6F9;
+  color: #333333;
+  margin: 0;
+`
+
+export const ProductContainer = styled.div`
   display:flex;
   flex-direction: column;
   justify-content: center;

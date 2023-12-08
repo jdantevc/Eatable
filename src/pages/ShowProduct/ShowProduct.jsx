@@ -1,11 +1,25 @@
 import Footer from "../../components/Footer";
-import { Container, Picture, ProductData, ProductDetails } from "./styles/ShowProduct";
+import { Container, Picture, ProductContainer, ProductData, ProductDetails } from "./styles/ShowProduct";
 import { formatPrice } from "../../utils/utils";
+import { useProd } from "../../context/productContext";
+import MainLoader from "../MainLoader/MainLoader";
+import { useNavigate } from "react-router-dom";
 
-function ShowProduct({ productData, onClick }) {
+function ShowProduct() {
+  const navigate = useNavigate();
+  const { productData, setProductData } = useProd();
+  if (!productData) {
+    return <MainLoader/>
+  }
+
+  function handleBackClick() {
+    setProductData(null);
+    navigate("/"); 
+  }
+
   return (
-    <>
     <Container>
+      <ProductContainer>
       <Picture src={productData.picture_url} alt={"product picture"}/>
       <ProductDetails>
         {productData.name}
@@ -17,9 +31,9 @@ function ShowProduct({ productData, onClick }) {
         <p style={{fontWeight:"bold"}}>Description</p>
         <p>{productData.description}</p> 
       </ProductData>
+    </ProductContainer>
+    <Footer text={"Back"} onClick={handleBackClick}/>
     </Container>
-    <Footer text={"Back"} onClick={onClick} />
-    </>
   );
 }
 
