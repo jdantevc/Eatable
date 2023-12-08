@@ -4,6 +4,7 @@ export const ProductCard = styled.div`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
   height: 220px;
+  min-width: 50%;
   padding: 1rem;
   display: flex;
   flex-direction: column;

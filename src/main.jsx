@@ -9,6 +9,7 @@ import ErrorPage from './components/ErrorPage';
 import ShowProduct from './pages/ShowProduct/ShowProduct';
 import { ProdProvider } from './context/productContext';
 import CreateProduct from './pages/CreateProduct/CreateProduct';
+import EditProduct from './pages/EditProduct/EditProduct';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     path: "create",
     element: <CreateProduct />,
   },
+  {
+    path: "edit",
+    element: <EditProduct />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -29,8 +29,15 @@ function MainScreen() {
     navigate(`/create`);
   }
 
+  function handleEditProduct(event){
+    const productId = event.target.getAttribute("data-product-id");
+    showProduct(productId).then((data) => setProductData(data));
+    navigate(`/edit`);
+  }
+
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
+    setProductData(null);
   }, []);
 
   return (
@@ -48,7 +55,7 @@ function MainScreen() {
                   {formatPrice(product.price)}
               </ProductDetails>
               <ButtonContainer>
-                <FiEdit style={{ color: "#FA4A0C"}}/> 
+                <FiEdit onClick={handleEditProduct} data-product-id={product.id} style={{ color: "#FA4A0C"}}/>  
                 <FiTrash2 style={{ color: "#FA4A0C"}}/>
               </ButtonContainer>
             </ProductData>

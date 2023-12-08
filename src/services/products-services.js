@@ -16,11 +16,11 @@ export async function createProduct(data = { name, price, category, description,
 }
 
 
-export function updateProduct(
+export async function updateProduct(
   id,
   data = { name, price, category, description, picture_url }
 ) {
-  return apiFetch(`/products/${id}`, {
+  return await apiFetch(`/products/${id}`, {
     body: data,
     method: "PATCH",
   });
