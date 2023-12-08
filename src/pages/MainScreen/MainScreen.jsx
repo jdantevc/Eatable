@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts, showProduct } from "../../services/products-services";
+import { getProducts, showProduct, deleteProduct } from "../../services/products-services";
 import { ButtonContainer, Dashboard, Picture, ProductCard, ProductData, ProductDetails } from "./styles/MainScreen";
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import Footer from "../../components/Footer";
@@ -35,6 +35,17 @@ function MainScreen() {
     navigate(`/edit`);
   }
 
+  const handleDeleteProduct = (event) => {
+    const productId = event.target.getAttribute("data-product-id");
+    deleteProduct(productId).then(() => {
+      getProducts().then((data) => {
+        setProducts(data);
+      });
+    }).catch((error) => {
+      console.error("Error deleting product:", error);
+    });
+  };
+
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
     setProductData(null);
@@ -56,7 +67,7 @@ function MainScreen() {
               </ProductDetails>
               <ButtonContainer>
                 <FiEdit onClick={handleEditProduct} data-product-id={product.id} style={{ color: "#FA4A0C"}}/>  
-                <FiTrash2 style={{ color: "#FA4A0C"}}/>
+                <FiTrash2 onClick={handleDeleteProduct} data-product-id={product.id} style={{ color: "#FA4A0C"}}/>
               </ButtonContainer>
             </ProductData>
           </ProductCard>

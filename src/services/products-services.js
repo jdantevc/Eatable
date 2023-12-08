@@ -25,3 +25,9 @@ export async function updateProduct(
     method: "PATCH",
   });
 }
+
+export async function deleteProduct(id) {
+  return await apiFetch(`/products/${id}`, {
+    method: "DELETE",
+  });
+}
