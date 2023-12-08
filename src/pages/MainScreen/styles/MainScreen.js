@@ -26,6 +26,7 @@ export const Picture = styled.img`
   height: 130px; 
   border-radius: 50%; 
   box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 `;
 
 export const ProductData = styled.div`

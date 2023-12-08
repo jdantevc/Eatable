@@ -7,7 +7,6 @@ import styled from "@emotion/styled";
 import { formatPrice } from "../../utils/utils";
 import { useProd } from "../../context/productContext";
 import { useNavigate } from "react-router-dom";
-import MainLoader from "../MainLoader/MainLoader";
 
 const Container = styled.div`
   text-align: center;
@@ -24,6 +23,10 @@ function MainScreen() {
     const productId = event.target.getAttribute("data-product-id");
     showProduct(productId).then((data) => setProductData(data));
     navigate(`/show`);
+  }
+
+  function handleCreateProduct(){
+    navigate(`/create`);
   }
 
   useEffect(() => {
@@ -52,7 +55,7 @@ function MainScreen() {
           </ProductCard>
         ))}
       </Dashboard>
-      <Footer text={"Create Product"}/>
+      <Footer onClick={handleCreateProduct} text={"Create Product"}/>
     </Container>
   );
 }

@@ -8,6 +8,7 @@ import App from './App'
 import ErrorPage from './components/ErrorPage';
 import ShowProduct from './pages/ShowProduct/ShowProduct';
 import { ProdProvider } from './context/productContext';
+import CreateProduct from './pages/CreateProduct/CreateProduct';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "show",
     element: <ShowProduct />,
+  },
+  {
+    path: "create",
+    element: <CreateProduct />,
   },
 ]);
 
