@@ -9,6 +9,7 @@ export const ProductCard = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  background-color: white;
 `;
 
 export const Dashboard = styled.div`

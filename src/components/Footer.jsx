@@ -12,11 +12,11 @@ const FooterButton = styled.button`
   font-weight: bold;
 `;
 
-const Footer = ({ text }) => {
+const Footer = ({ text, onClick }) => {
   return (
-      <FooterButton>
-        {text}
-      </FooterButton>
+    <FooterButton onClick={onClick}>
+      {text}
+    </FooterButton>
   );
 }
 
